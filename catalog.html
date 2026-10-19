@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>کاتالوگ عکس‌های محصولات</title>
+  <style>
+    :root{--bg:#f6f7fb;--card:#fff;--ink:#182230;--muted:#697586;--accent:#2563eb}
+    *{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--ink);font-family:Tahoma,Arial,sans-serif}
+    header{padding:56px 20px 42px;text-align:center;background:linear-gradient(135deg,#172554,#2563eb);color:#fff}
+    h1{margin:0 0 12px;font-size:clamp(28px,5vw,48px)} header p{margin:0;color:#dbeafe;font-size:16px}
+    main{max-width:1180px;margin:0 auto;padding:34px 20px 60px}.toolbar{display:flex;gap:12px;flex-wrap:wrap;justify-content:space-between;align-items:center;margin-bottom:24px}
+    .count{color:var(--muted)} input{width:min(100%,340px);padding:12px 14px;border:1px solid #d7dce5;border-radius:12px;font:inherit;background:#fff}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}.card{background:var(--card);border-radius:18px;overflow:hidden;box-shadow:0 8px 24px #1e293b12;border:1px solid #e8ebf0}
+    .placeholder{aspect-ratio:4/3;display:grid;place-items:center;background:#eef2ff;color:#4f46e5;font-size:46px}.body{padding:16px}.body h2{font-size:18px;margin:0 0 8px}.body p{margin:0;color:var(--muted);font-size:14px;line-height:1.8}
+    footer{text-align:center;color:var(--muted);font-size:13px;padding:24px}
+  </style>
+</head>
+<body>
+  <header><h1>کاتالوگ عکس‌های محصولات</h1><p>نمایش و دسته‌بندی تصاویر محصولات</p></header>
+  <main>
+    <div class="toolbar"><strong>محصولات</strong><input id="search" placeholder="جست‌وجوی محصول..." aria-label="جست‌وجو"></div>
+    <section class="grid" id="catalog">
+      <article class="card" data-name="نمونه محصول"><div class="placeholder">＋</div><div class="body"><h2>محصول جدید</h2><p>تصویر و توضیحات محصول پس از ارسال عکس اضافه می‌شود.</p></div></article>
+    </section>
+  </main>
+  <footer>کاتالوگ عکس‌های محصولات</footer>
+  <script>
+    const search=document.querySelector('#search');
+    search.addEventListener('input',()=>document.querySelectorAll('.card').forEach(c=>c.hidden=!c.dataset.name.includes(search.value.trim())));
+  </script>
+</body>
+</html>
